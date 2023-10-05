@@ -320,7 +320,7 @@ section {
   align-items: center;
 
   .home-bg {
-    background-image: url('../da.jpeg');
+    background-image: url('../images/home-bg.jpeg');
     -webkit-filter: blur(4px);
     filter: blur(4px);
     opacity: 0.7;
