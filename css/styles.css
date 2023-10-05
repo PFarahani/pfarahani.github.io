@@ -1221,99 +1221,21 @@ section {
 
 /* || @media RULES */
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 1100px) {
 
-  /* CSS for small width screens */
+  /* CSS for wide screens */
+  .activities-item {
+    width: 240px !important;
+    height: 380px !important;
 
-  section {
-    margin-bottom: 50px;
-  }
-
-  .swiper-button-prev,
-  .swiper-button-next {
-    display: none !important;
-  }
-
-  .heading-shadow {
-    font-size: 70px;
-  }
-
-  .project-details p {
-    width: 400px !important;
-  }
-}
-
-
-@media screen and (max-width: 600px) {
-
-  #about .image-about img {
-    width: 180px !important;
-    height: auto !important;
-  }
-
-  #about .about-info {
-    gap: 1.5rem !important;
-    padding: 0 !important;
-    padding-right: 1rem !important;
-    font-size: 12px !important;
-
-    & button {
-      font-size: 12px !important;
-      min-width: 120px !important;
-      padding: 0.6rem !important;
+    & svg {
+      width: 80px !important;
+      height: 80px !important;
     }
   }
 
-  #hobbies {
-    .hobbies-item {
-      width: 80px;
-      height: 80px;
-      display: inline-flex;
-      margin: 0;
-      font-size: 2rem;
-      align-items: center;
-      justify-content: center;
-
-      & span {
-        font-size: 12px;
-      }
-    }
-  }
-
-  /* Place the timeline to the left */
-  .timeline::after {
-    left: 31px;
-  }
-
-  .timeline .experience {
-    width: 100%;
-    padding-left: 70px;
-    padding-right: 25px;
-  }
-
-  .timeline .experience::before {
-    left: 61px;
-    border: medium solid #191919;
-    border-width: 10px 10px 10px 0;
-    border-color: transparent #191919 transparent transparent;
-  }
-
-  .left::after,
-  .right::after {
-    left: 15px;
-  }
-
-  /* Make all right containers behave like the left ones */
-  .right {
-    left: 0%;
-  }
-
-  #programming .skills-container {
-    overflow-y: scroll !important
-  }
-
-  .project-details p {
-    width: 500px !important;
+  .projects-container {
+    width: 90% !important;
   }
 }
 
@@ -1464,20 +1386,98 @@ section {
 }
 
 
-@media screen and (max-width: 1100px) {
+@media screen and (max-width: 600px) {
 
-  /* CSS for wide screens */
-  .activities-item {
-    width: 240px !important;
-    height: 380px !important;
+  #about .image-about img {
+    width: 180px !important;
+    height: auto !important;
+  }
 
-    & svg {
-      width: 80px !important;
-      height: 80px !important;
+  #about .about-info {
+    gap: 1.5rem !important;
+    padding: 0 !important;
+    padding-right: 1rem !important;
+    font-size: 12px !important;
+
+    & button {
+      font-size: 12px !important;
+      min-width: 120px !important;
+      padding: 0.6rem !important;
     }
   }
 
-  .projects-container {
-    width: 90% !important;
+  #hobbies {
+    .hobbies-item {
+      width: 80px;
+      height: 80px;
+      display: inline-flex;
+      margin: 0;
+      font-size: 2rem;
+      align-items: center;
+      justify-content: center;
+
+      & span {
+        font-size: 12px;
+      }
+    }
+  }
+
+  /* Place the timeline to the left */
+  .timeline::after {
+    left: 31px;
+  }
+
+  .timeline .experience {
+    width: 100%;
+    padding-left: 70px;
+    padding-right: 25px;
+  }
+
+  .timeline .experience::before {
+    left: 61px;
+    border: medium solid #191919;
+    border-width: 10px 10px 10px 0;
+    border-color: transparent #191919 transparent transparent;
+  }
+
+  .left::after,
+  .right::after {
+    left: 15px;
+  }
+
+  /* Make all right containers behave like the left ones */
+  .right {
+    left: 0%;
+  }
+
+  #programming .skills-container {
+    overflow-y: scroll !important
+  }
+
+  .project-details p {
+    width: 500px !important;
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+
+  /* CSS for small width screens */
+
+  section {
+    margin-bottom: 50px;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+
+  .heading-shadow {
+    font-size: 70px;
+  }
+
+  .project-details p {
+    width: 400px !important;
   }
 }
