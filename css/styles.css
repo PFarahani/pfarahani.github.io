@@ -1455,7 +1455,7 @@ section {
   }
 
   .project-details p {
-    width: 500px !important;
+    width: 95% !important;
   }
 }
 
@@ -1473,11 +1473,36 @@ section {
     display: none !important;
   }
 
-  .heading-shadow {
-    font-size: 70px;
+  #hobbies {
+    flex-wrap: wrap;
+    row-gap: 3rem !important;
   }
 
-  .project-details p {
-    width: 400px !important;
+  .heading-shadow {
+    font-size: 70px !important;
+  }
+}
+
+
+@media screen and (max-width: 380px) {
+
+  /* CSS for small width screens */
+
+  section {
+    margin-bottom: 50px;
+  }
+
+  #home-section {
+    height: 740px !important;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    display: none !important;
+  }
+
+  .heading-shadow {
+    font-size: 65px !important;
+    overflow-x: hidden;
   }
 }
