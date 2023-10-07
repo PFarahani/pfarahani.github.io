@@ -502,6 +502,8 @@ section {
     & svg {
       fill: var(--base-color);
       padding: 0.5rem;
+      width: 100%;
+      height: 100%;
     }
 
     & i {
@@ -953,6 +955,7 @@ section {
     display: flex;
     justify-content: space-between;
     color: white;
+    gap: 5px;
 
     & h1 {
       font-weight: bolder;
@@ -1488,6 +1491,16 @@ section {
 
   /* CSS for small width screens */
 
+  #home-section .title h1 {
+    font-size: 68px;
+    line-height: 1.25;
+    margin-bottom: 5rem;
+  }
+
+  #experience-section {
+    margin-top: -6rem;
+  }
+
   section {
     margin-bottom: 50px;
   }
@@ -1504,5 +1517,21 @@ section {
   .heading-shadow {
     font-size: 65px !important;
     overflow-x: hidden;
+  }
+
+  .project {
+    .project-date {
+      font-size: 18px;
+    }
+
+    .project-title {
+      & h1 {
+        font-size: 24px;
+      }
+
+      .project-details-button {
+        font-size: 14px;
+      }
+    }
   }
 }
