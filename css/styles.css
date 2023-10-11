@@ -320,10 +320,11 @@ section {
   align-items: center;
 
   .home-bg {
-    background-image: url('../images/home-bg.jpeg');
+    background-image: url('../images/home-bg.jpg');
     -webkit-filter: blur(4px);
     filter: blur(4px);
     opacity: 0.7;
+    -webkit-background-size: cover;
     background-size: cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
