@@ -423,6 +423,188 @@
       <input type="checkbox" id="proj-toggle" class="toggle-input" title="project-toggle" />
       <div class="projects-container">
         <div class="project">
+          <div class="project-date">May 2024</div>
+          <div class="project-title">
+            <h1>Person Detector Model</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">This project involves a Flask API designed to detect persons in images using the YOLOv8 model. The API processes image URLs submitted via POST requests and returns a JSON response indicating whether persons are detected</p>
+          <div class="project-details">
+            <p>
+              The project leverages the YOLOv8 model, integrated into a Flask-based web service to facilitate person detection. The API endpoint "/detect" accepts a JSON payload containing a list of image URLs. It uses YOLOv8 for inference, detecting persons in the images. The results are processed and returned as a JSON response, where each image URL is paired with a boolean indicating the presence of persons. The service is optimized to handle multiple images and provides real-time detection results, showcasing an efficient approach to object recognition in images.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Feb 2024</div>
+          <div class="project-title">
+            <h1>PostgreSQL Function and View DDL Extractor</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">This script automates the extraction and organization of Data Definition Language (DDL) source code for user-defined functions and views from a PostgreSQL database</p>
+          <div class="project-details">
+            <p>
+              The project involves two Python scripts that connect to a PostgreSQL database and retrieve the DDL for functions and views. The "extract_function_ddl.py" script extracts function definitions, organizes them into directories based on schemas, and saves them as .sql files, handling invalid characters in filenames and long names. Similarly, the "extract_view_ddl.py" script performs a parallel task for view definitions. Both scripts ensure proper organization of extracted DDL files and handle potential exceptions during the process, providing a robust solution for database documentation and analysis.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Jan 2024</div>
+          <div class="project-title">
+            <h1>Failed Tax Resending Automation</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">This project automates the process of identifying and resending failed tax records</p>
+          <div class="project-details">
+            <p>
+              The project involves a two-step process executed via PySpark and Apache Airflow. The "update_tax_failed_null_response.py" script utilizes PySpark to extract data from PostgreSQL databases, identify failed tax records, and store them in a dedicated table for further processing. The "tax_daily_resend_failed_null_response_dag.py" script, orchestrated by Apache Airflow, schedules the execution of the PySpark script and subsequently manages the resending of the failed records by interacting with the database. The automation ensures timely updates and accurate handling of failed tax records, improving the reliability and efficiency of tax data processing.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Feb 2023</div>
+          <div class="project-title">
+            <h1>Cron Task Scheduler</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">A comprehensive toolset for scheduling tasks and identifying non-overlapping intervals between them within a specified timeframe</p>
+          <div class="project-details">
+            <p>
+              The project involves several Python scripts for managing cron job schedules and visualizing them. The "data_preprocessor.py" script consolidates input datasets into a unified output, categorizing jobs and renaming columns for consistency. "gantt_chart_generator.py" creates Gantt charts to visually represent job schedules using Plotly, displaying job timings over user-defined intervals. "cron_schedule_lookup.py" parses cron schedules to generate datetime lists for tasks within specified intervals and date ranges. Finally, "cron_task_scheduler.py" refines task scheduling by accounting for free intervals and optimizing crontab schedules to minimize unassigned times.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Feb 2023</div>
+          <div class="project-title">
+            <h1>Airflow Dataset Preprocessing</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">This project involves the extraction and preprocessing of Apache Airflow DAG data for detailed runtime analysis</p>
+          <div class="project-details">
+            <p>
+              This project consists of two main components: "airflow_dag_scraper.py" and "airflow_dataset_preprocessing.py". The "airflow_dag_scraper.py" script extracts DAG metadata from the Airflow UI using session-based authentication, generating a CSV file (airflow_dags.csv) containing DAG IDs and their schedules. The "airflow_dataset_preprocessing.py" script processes this data along with Airflow log files to compute runtime statistics, such as average and maximum runtimes, and failed run metrics. The processed results are consolidated into a summarized report saved as dags.csv. The project utilizes libraries like pandas and BeautifulSoup for data manipulation and web scraping, and it generates insights into DAG performance to facilitate further analysis.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Jan 2023</div>
+          <div class="project-title">
+            <h1>HTML Table to Markdown Table Converter</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">This script converts HTML tables into Markdown tables while preserving text formatting and HTML tags where necessary</p>
+          <div class="project-details">
+            <p>
+              The project involved creating a Python script utilizing the BeautifulSoup library to parse and transform HTML table structures into Markdown format. The script processes both header and data rows, and directly prints unconvertible HTML attributes as they are.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Dec 2022</div>
+          <div class="project-title">
+            <h1>Cron Gantt</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">This project involved developing a script to visualize job schedules using a Gantt chart, with input data in a pandas DataFrame</p>
+          <div class="project-details">
+            <p>
+              The script processes job scheduling data from a pandas DataFrame containing job names, crontab schedules, categories, and durations. It converts crontab schedules into a series of start and end times, and aggregates these into a Gantt chart using Plotly. The chart visualizes job schedules within a user-defined interval, displaying job timings and categories clearly. The output is an interactive Gantt chart saved as an HTML file, which helps users analyze job schedules effectively and is displayed for immediate review.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Dec 2022</div>
+          <div class="project-title">
+            <h1>Proxy Extractor</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">A tool designed to retrieve free proxies from ProxyHub.Me and verify their connectivity status</p>
+          <div class="project-details">
+            <p>
+              This project involves the development of an asynchronous Python script that extracts free proxy lists from ProxyHub.Me across multiple pages using aiohttp for efficient HTTP requests. The script employs BeautifulSoup for parsing the HTML content and organizing the proxy data into a structured pandas DataFrame. It then checks the operational status of each proxy by attempting to access a test URL, logging proxies that are responsive and removing those that fail. The results are saved in a CSV file for easy access and future reference. This approach ensures up-to-date and functional proxy lists for use in various applications.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Dec 2022</div>
+          <div class="project-title">
+            <h1>Python Main Menu</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">A template to refer to when creating a main menu in Python scripts</p>
+          <div class="project-details">
+            <p>
+              The Python Main Menu project is a versatile template designed to create a user-friendly menu system for Python applications. It includes two primary functions: FeatureMenu and MainMenu. The FeatureMenu function displays a list of features with toggles for their activation status, while the MainMenu provides an entry point for navigating to different application sections or exiting. The menu options are controlled through user input, with clear feedback on invalid choices. This template demonstrates the use of modular functions to manage user interaction and application flow efficiently, offering a clear structure for expanding menu options and features in Python scripts.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Oct 2022</div>
+          <div class="project-title">
+            <h1>reCAPTCHA Solver</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">A script designed to automatically solve reCAPTCHA v2 audio challenges</p>
+          <div class="project-details">
+            <p>
+              This project involved creating an automated solution for solving reCAPTCHA v2 audio challenges using a combination of Selenium WebDriver and third-party services. The script accepts a URL and a reCAPTCHA site key, then interacts with the reCAPTCHA widget to trigger and retrieve the audio challenge.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Oct 2022</div>
+          <div class="project-title">
+            <h1>Hotel Guarantee Code Checker</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">A Python-based tool for ensuring accuracy and consistency in hotel guarantee codes by cross-referencing data from two different platforms</p>
+          <div class="project-details">
+            <p>
+              This project involves creating a Python script that accepts a specific date and scrapes guarantee code information from both hotels' panel and admin's panel. It compares the data to identify any discrepancies between the two platforms. The program generates a detailed .csv file highlighting these inconsistencies, helping hotel administrators ensure that guarantee codes are labeled correctly. The tool also allows for optional tables to be generated, providing additional insights depending on the user's needs. This project significantly reduced manual checking time, improved data accuracy, and contributed to more reliable hotel booking processes.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Oct 2022</div>
+          <div class="project-title">
+            <h1>SnappTrip International Flight Crawler</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">A simple program for crawling international flight data, allowing users to specify dates and destinations, and outputting the data as a CSV file</p>
+          <div class="project-details">
+            <p>
+              This project involves a Python-based web scraping tool designed to collect B2C and international flight information from Snapptrip.com. The program accepts dates as input and uses a customizable mapping file to specify destinations. It leverages asynchronous requests (using aiohttp) to efficiently scrape flight data, processes the raw data using Pandas for cleaning and formatting, and then exports the information into a CSV file. The tool's user interface is built using Tkinter, enabling users to select the directory containing the destination mappings. The final output is a neatly organized CSV file containing detailed flight information, including prices, departure and arrival times, and airline details.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Oct 2022</div>
+          <div class="project-title">
+            <h1>B2B Flight Crawler</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">This project involves a suite of crawlers designed to extract flight data from various B2B flight providers and a comparison tool to analyze and compare the prices</p>
+          <div class="project-details">
+            <p>
+              The project is composed of several modules, each tailored to crawl data from specific flight providers, including Snapptrip, Altrabo, and Parto. The crawlers, implemented using Python, leverage asynchronous processing to efficiently gather flight information. The data is then cleaned and formatted for consistency, and supplementary crawlers are used to handle any missing information. The final step involves a comparison module that merges the datasets from Snapptrip and Altrabo, removing duplicates and identifying the best prices across providers. The output is a comprehensive dataset that provides detailed price comparisons, helping stakeholders make informed decisions based on the most accurate and competitive flight pricing available.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Oct 2022</div>
+          <div class="project-title">
+            <h1>Free RoomNight Lookup</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">A program designed to retrieve and export detailed information about hotel bookings using booking codes</p>
+          <div class="project-details">
+            <p>
+              This project involves a tool that accepts hotel booking codes as input and scrapes relevant booking information from a designated website. The program logs in securely, processes the booking codes, and attempts to retrieve data from both B2C and B2B booking databases. The extracted data includes details such as hotel name, city, booking and checkout dates, room type, and pricing information. The processed information is then neatly organized and exported into a CSV file, providing an easy-to-use format for further analysis or record-keeping.
+            </p>
+          </div>
+        </div>
+        <div class="project">
           <div class="project-date">Aug 2021</div>
           <div class="project-title">
             <h1>Credit Card Fraud Detection Using Supervised Learning Methods</h1>
@@ -452,6 +634,19 @@
               Random Forest model with an average accuracy of 0.65 and 0.98, respectively, was selected as the best
               model
               for predicting fraudulent transactions.
+            </p>
+          </div>
+        </div>
+        <div class="project">
+          <div class="project-date">Feb 2021</div>
+          <div class="project-title">
+            <h1>Spotify Music Taste Discovery</h1>
+            <div class="project-details-button">Details</div>
+          </div>
+          <p class="project-description">A project focused on analyzing Spotify's "Discover Weekly" playlist to uncover personal music genre tendencies</p>
+          <div class="project-details">
+            <p>
+              I analyzed Spotify's "Discover Weekly" playlist to uncover personalized music preferences. By extracting and pre-processing the playlist data, I was able to generate insights into the user's musical inclinations. The final output was a visually engaging radar chart that clearly illustrated the dominant music genres, providing a comprehensive overview of individual music tastes.
             </p>
           </div>
         </div>
