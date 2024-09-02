@@ -849,9 +849,7 @@ section {
 }
 
 #programming .skills-container {
-  overflow: visible; /* scroll */
-  /* overflow-x: hidden; */
-  /* column-gap: 15px; */
+  overflow: visible;
 }
 
 .skills-container {
