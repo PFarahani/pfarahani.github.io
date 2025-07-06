@@ -136,8 +136,8 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Apply current height based on checkbox state
-    timeline.style.maxHeight = toggleCheckbox.checked 
-      ? `${ExpMaximumHeight}px` 
+    timeline.style.maxHeight = toggleCheckbox.checked
+      ? `${ExpMaximumHeight}px`
       : `${ExpInitialHeight}px`;
   }
 
@@ -156,8 +156,8 @@ document.addEventListener('DOMContentLoaded', function () {
   // Toggle logic
   toggleCheckbox.addEventListener('change', () => {
     calculateHeights();
-    timeline.style.maxHeight = toggleCheckbox.checked 
-      ? `${ExpMaximumHeight}px` 
+    timeline.style.maxHeight = toggleCheckbox.checked
+      ? `${ExpMaximumHeight}px`
       : `${ExpInitialHeight}px`;
   });
 });
@@ -165,32 +165,171 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // DISPLAY SKILL CATEGORY
 document.addEventListener('DOMContentLoaded', function () {
-  var softwareElement = document.getElementById('software');
-  var programmingElement = document.getElementById('programming');
-
-  // Set the element to none on page load (refresh)
-  softwareElement.style.display = 'none';
-  programmingElement.style.display = 'none';
-
-  // 'software' category
-  document.getElementById('category-software').addEventListener('click', function () {
-    if (softwareElement.style.display === 'none' || softwareElement.style.display === '') {
-      softwareElement.style.display = 'flex';
-      programmingElement.style.display = 'none';
-    } else {
-      softwareElement.style.display = 'none';
+  // Get all category elements
+  const categories = {
+    software: {
+      containerId: 'software',
+      buttonId: 'category-software'
+    },
+    programming: {
+      containerId: 'programming',
+      buttonId: 'category-programming'
+    },
+    frameworksLibraries: {
+      containerId: 'frameworks-libraries',
+      buttonId: 'category-frameworks-libraries'
     }
+  };
+
+  // Cache DOM elements
+  const containers = {};
+  Object.keys(categories).forEach(key => {
+    containers[key] = document.getElementById(categories[key].containerId);
   });
 
-  // 'programming' category
-  document.getElementById('category-programming').addEventListener('click', function () {
-    if (programmingElement.style.display === 'none' || programmingElement.style.display === '') {
-      programmingElement.style.display = 'flex';
-      softwareElement.style.display = 'none';
-    } else {
-      programmingElement.style.display = 'none';
+  // Hide all containers on page load
+  Object.values(containers).forEach(container => {
+    container.style.display = 'none';
+  });
+
+  // Helper function to show a specific category
+  function showCategory(activeKey) {
+    Object.keys(containers).forEach(key => {
+      containers[key].style.display = key === activeKey ? 'flex' : 'none';
+    });
+  }
+
+  // Attach click handlers for each button
+  Object.keys(categories).forEach(key => {
+    const button = document.getElementById(categories[key].buttonId);
+    if (button) {
+      button.addEventListener('click', () => {
+        // Toggle visibility: hide if already visible
+        if (containers[key].style.display === 'flex') {
+          containers[key].style.display = 'none';
+        } else {
+          showCategory(key);
+        }
+      });
     }
   });
+});
+
+
+// DYNAMICALLY GENERATE SKILLS
+document.addEventListener('DOMContentLoaded', () => {
+  // Define skills data grouped by category
+  const skillCategories = {
+    software: [
+      { name: 'PostgreSQL', progress: 100 },
+      { name: 'SQL Server', progress: 100 },
+      { name: 'ClickHouse', progress: 100 },
+      { name: 'SSIS', progress: 100 },
+      { name: 'SSAS', progress: 100 },
+      { name: 'Microsoft Excel', progress: 100 },
+      { name: 'Power BI', progress: 100 },
+      { name: 'Tableau', progress: 90 },
+      { name: 'Metabase', progress: 85 },
+      { name: 'Apache Airflow', progress: 90 },
+      { name: 'Git', progress: 90 },
+      { name: 'Apache Kafka', progress: 40 },
+      { name: 'Weka', progress: 90 },
+      { name: 'MS Access', progress: 80 },
+      { name: 'IBM SPSS & SPSS Modeler', progress: 80 },
+    ],
+    programming: [
+      { name: 'Python', progress: 100 },
+      { name: 'SQL', progress: 100 },
+      { name: 'Spark', progress: 80 },
+      { name: 'Bash', progress: 40 },
+    ],
+    frameworksLibraries: [
+      { name: 'Pandas' },
+      { name: 'NumPy' },
+      { name: 'Scikit-learn' },
+      { name: 'PyTorch' },
+      { name: 'TensorFlow' },
+      { name: 'Matplotlib' },
+      { name: 'Seaborn' },
+      { name: 'Plotly' },
+      { name: 'Spacy' },
+      { name: 'Scrapy' },
+      { name: 'Requests' },
+      { name: 'Selenium' },
+      { name: 'Asyncio' },
+      { name: 'Aiohttp' },
+      { name: 'lxml' },
+    ]
+  };
+
+  // // Function to sanitize framework names into valid CSS classes
+  // function getIconClass(name) {
+  //   return name.toLowerCase().replace(/[^a-z0-9]+/g, '-');
+  // }
+
+  // Function to create .skill element with progress bar
+  function createSkillElement(skill) {
+    const skillDiv = document.createElement('div');
+    skillDiv.className = 'skill';
+
+    skillDiv.innerHTML = `
+      <div class="progress-bar">
+        <div class="progress-circle" data-progress="${skill.progress}" style="--progress: ${skill.progress}%;"></div>
+      </div>
+      <span>${skill.name}</span>
+    `;
+
+    return skillDiv;
+  }
+
+  // Function to create .skill-badge element
+  function createSkillBadge(skillBadge) {
+    const badge = document.createElement('span');
+    badge.className = 'skill-badge';
+
+    // const icon = document.createElement('i');
+    // icon.className = `framework-icon ${getIconClass(framework.name)}`;
+
+    const nameSpan = document.createElement('span');
+    nameSpan.className = 'skill-badge-name';
+    nameSpan.textContent = skillBadge.name;
+
+    // badge.appendChild(icon);
+    //
+    //
+    badge.appendChild(nameSpan);
+
+    return badge;
+  }
+
+  // Function to render skills for a given category
+  function renderSkills(categoryId, skills) {
+    const container = document.querySelector(`#${categoryId} .skills-container`);
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    skills.forEach(skill => {
+      container.appendChild(createSkillElement(skill));
+    });
+  }
+
+  // Function to render skill badges for a given category
+  function renderSkillBadges(categoryId, skills) {
+    const container = document.querySelector(`#${categoryId} .skills-container`);
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    skills.forEach(skill => {
+      container.appendChild(createSkillBadge(skill));
+    });
+  }
+
+  // Render each category
+  renderSkills('software', skillCategories.software);
+  renderSkills('programming', skillCategories.programming);
+  renderSkillBadges('frameworks-libraries', skillCategories.frameworksLibraries);
 });
 
 
