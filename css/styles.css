@@ -100,7 +100,6 @@ a {
 .heading-section {
   text-align: center;
   position: relative;
-  margin-bottom: -2rem;
 
   .heading {
     position: relative;
@@ -113,13 +112,18 @@ a {
   }
 
   .heading-shadow {
-    position: relative;
-    margin: 0;
-    font-size: 104px;
-    color: #191919;
-    font-weight: 900;
-    transform: translateY(-50%);
-    z-index: 0;
+      position: relative;
+      margin: 0;
+      font-size: clamp(3.5rem, 10vw, 6.5rem);
+      color: #191919;
+      font-weight: 900;
+      transform: translateY(-50%);
+      z-index: 0;
+      max-width: 95vw;
+      white-space: nowrap;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
   }
 }
 
@@ -238,7 +242,6 @@ section {
   flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  gap: 10rem;
 
   .navbar-brand {
     font-size: 1.5rem;
@@ -387,11 +390,6 @@ section {
       transform: translateY(-50%);
     }
   }
-
-  .heading-section {
-    transform: translateY(-10%);
-    margin-bottom: 0;
-  }
 }
 
 .profile-swiper {
@@ -471,7 +469,7 @@ section {
       color: black;
       cursor: pointer;
       border-radius: 40px;
-      box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09);
+      /* box-shadow: 0px 24px 36px -11px rgba(0, 0, 0, 0.09); */
       text-transform: uppercase;
       letter-spacing: 2px;
       font-weight: 600;
@@ -482,6 +480,7 @@ section {
 
 #hobbies {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
   gap: 40px;
@@ -647,6 +646,11 @@ section {
   transform: translateY(50%);
   opacity: 0;
   transition: all 0.5s;
+}
+
+label[for="exp-toggle"] {
+  height: 0;
+  display: block;
 }
 
 #exp-toggle:checked+.timeline .experience:nth-child(n+3) {
@@ -1466,6 +1470,9 @@ section {
 @media screen and (max-width: 480px) {
 
   /* CSS for small width screens */
+  #home-section {
+    height: 740px !important;
+  }
 
   section {
     margin-bottom: 50px;
@@ -1479,10 +1486,6 @@ section {
   #hobbies {
     flex-wrap: wrap;
     row-gap: 3rem !important;
-  }
-
-  .heading-shadow {
-    font-size: 70px !important;
   }
 }
 
@@ -1512,11 +1515,6 @@ section {
   .swiper-button-prev,
   .swiper-button-next {
     display: none !important;
-  }
-
-  .heading-shadow {
-    font-size: 65px !important;
-    overflow-x: hidden;
   }
 
   .project {

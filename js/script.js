@@ -113,30 +113,52 @@ document.addEventListener('DOMContentLoaded', function () {
   const toggleCheckbox = document.getElementById('exp-toggle');
   const toggleLabel = document.getElementById('exp-expand-collapse');
 
-  // Calculate the initial height as the sum of the heights of the first 2 .experience elements
   let ExpInitialHeight = 0;
-  for (let i = 0; i < 2 && i < experience.length; i++) {
-    ExpInitialHeight += experience[i].offsetHeight;
+  let ExpMaximumHeight = 0;
+
+  // Function to recalculate heights
+  function calculateHeights() {
+    ExpInitialHeight = 0;
+    for (let i = 0; i < 2 && i < experience.length; i++) {
+      ExpInitialHeight += experience[i].offsetHeight;
+    }
+
+    ExpMaximumHeight = 0;
+    experience.forEach(experience => {
+      ExpMaximumHeight += experience.offsetHeight;
+    });
+
+    // Update UI state
+    if (ExpInitialHeight === ExpMaximumHeight) {
+      toggleLabel.classList.add('no-collapse');
+    } else {
+      toggleLabel.classList.remove('no-collapse');
+    }
+
+    // Apply current height based on checkbox state
+    timeline.style.maxHeight = toggleCheckbox.checked 
+      ? `${ExpMaximumHeight}px` 
+      : `${ExpInitialHeight}px`;
   }
 
-  let ExpMaximumHeight = 0;
-  experience.forEach(experience => {
-    ExpMaximumHeight += experience.offsetHeight;
+  // Initial calculation
+  calculateHeights();
+
+  // Debounced resize handler
+  let resizeTimeout;
+  window.addEventListener('resize', () => {
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+      calculateHeights();
+    }, 200); // Adjust debounce time as needed
   });
 
-  if (ExpInitialHeight === ExpMaximumHeight) {
-    toggleLabel.classList.add('no-collapse');
-  }
-
-  // Set the initial height for the .timeline element
-  timeline.style.maxHeight = `${ExpInitialHeight}px`;
-
+  // Toggle logic
   toggleCheckbox.addEventListener('change', () => {
-    if (toggleCheckbox.checked) {
-      timeline.style.maxHeight = `${ExpMaximumHeight}px`;
-    } else {
-      timeline.style.maxHeight = `${ExpInitialHeight}px`;
-    }
+    calculateHeights();
+    timeline.style.maxHeight = toggleCheckbox.checked 
+      ? `${ExpMaximumHeight}px` 
+      : `${ExpInitialHeight}px`;
   });
 });
 
